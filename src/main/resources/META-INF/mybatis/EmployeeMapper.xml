@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.EmployeeMapper">
+
+    <resultMap id="baseMap" type="com.example.demo.pojo.Employee">
+        <result column="id" property="id"/>
+        <result column="employee_uid" property="employeeUid"/>
+        <result column="employee_name" property="employeeName"/>
+        <result column="gender" property="gender"/>
+        <result column="age" property="age"/>
+        <result column="archive" property="archive"/>
+    </resultMap>
+
+    <select id="getEmployeeInfo" resultMap="baseMap">
+        select * from employee where employee_uid = #{employeeUid} and archive = 1
+    </select>
+
+</mapper>
